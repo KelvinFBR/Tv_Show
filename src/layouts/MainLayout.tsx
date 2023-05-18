@@ -1,13 +1,14 @@
-import { LayoutProps } from "../types/layout.type"
+import { Footer, Header } from "./components"
+import { LayoutProps } from "./models/types/layout.type"
 
 const MainLayout = ({ children }: LayoutProps) => {
     return (
         <>
-            <header>Header</header>
+            <Header />
             <main>
                 {children}
-            </main>
-            <footer>Footer</footer>
+            </main >
+            <Footer />
         </>
     )
 }
