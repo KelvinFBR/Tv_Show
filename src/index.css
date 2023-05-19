@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    .text-shadow {
+        text-shadow: 1.5px 0 1px rgba(53, 53, 53, 0.84);
+    }
+
+    /* footer responsive */
+    .footer-bottom {
+        position: relative;
+        min-height: calc(100vh - 216px);
+    }
+}

@@ -5,7 +5,7 @@ const MainLayout = ({ children }: LayoutProps) => {
     return (
         <>
             <Header />
-            <main>
+            <main className="bg-[#112b3c1c] footer-bottom">
                 {children}
             </main >
             <Footer />
