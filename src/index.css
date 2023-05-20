@@ -4,6 +4,10 @@
 
 
 @layer utilities {
+    html {
+        scroll-behavior: smooth;
+    }
+
     .text-shadow {
         text-shadow: 1.5px 0 1px rgba(53, 53, 53, 0.84);
     }
@@ -12,5 +16,15 @@
     .footer-bottom {
         position: relative;
         min-height: calc(100vh - 216px);
+    }
+
+    .hover-img-card:hover>img {
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: scale(1.05);
+    }
+
+    .hover-bar-card:hover span {
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: scale(1.15);
     }
 }

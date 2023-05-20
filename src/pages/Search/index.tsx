@@ -2,12 +2,12 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import queryString from "query-string";
 import { ShowServices } from "../../services/showServices";
-import CardList from "../../components/CardList";
+import Card from "../../components/Card";
+import TitleSection from "./components/TitleSection";
 
 const showServices = new ShowServices()
 
-// test data
-
+//! test data
 const shows = [
     {
         "id": 35624,
@@ -247,10 +247,10 @@ const Search = () => {
     return (
         <>
             <section className="p-10">
-                <h3 className="">Searching: {q}</h3>
+                <TitleSection query={q as string} />
                 <div className=" flex flex-wrap justify-center gap-8 p-10">
                     {shows.map((data) => (
-                        <CardList key={data.id} data={data} />
+                        <Card key={data.id} data={data} />
                     ))}
                 </div>
             </section>

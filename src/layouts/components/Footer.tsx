@@ -2,7 +2,7 @@ import { AiFillInstagram, AiFillFacebook, AiFillTwitterCircle } from 'react-icon
 
 const Footer = () => {
     return (
-        <footer className="bg-[#112B3C] p-8 text-white text-center">
+        <footer className="bg-[#112B3C] p-8 text-white text-center" id='contact'>
             <div className="flex gap-x-16 gap-10 flex-wrap justify-center md:justify-between mb-10">
                 <h1 className="font-bold text-xl text-[#F66B0E]"><a href="/">TvShow</a></h1>
 
