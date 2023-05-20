@@ -1,4 +1,4 @@
-import { MenuToggle } from "../../hooks/menuToggle"
+import { MenuToggle } from "../../hooks/useMenuToggle"
 import BtnToggleMenu from "./BtnToggleMenu"
 import Menu from "./Menu"
 import Search from "./Search"

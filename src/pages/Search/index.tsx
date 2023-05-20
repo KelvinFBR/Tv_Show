@@ -1,11 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import queryString from "query-string";
-import { ShowServices } from "../../services/showServices";
 import Card from "../../components/Card";
 import TitleSection from "./components/TitleSection";
 
-const showServices = new ShowServices()
 
 //! test data
 const shows = [
@@ -239,8 +237,7 @@ const Search = () => {
 
     useEffect(() => {
         //Todo: fetch api
-        const data = showServices.getShows(q as string)
-        console.log({ data })
+
     }, [q])
 
 
