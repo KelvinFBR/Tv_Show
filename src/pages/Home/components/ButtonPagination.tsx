@@ -8,7 +8,6 @@ const ButtonPagination = ({ page, totalPages, setShowPage }: ButtonPaginationPro
     }
 
     const handdleNextPage = () => {
-        console.log(totalPages)
         if (page >= totalPages) return
         setShowPage(page + 1)
     }

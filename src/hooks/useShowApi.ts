@@ -31,7 +31,6 @@ const useShowApi = () => {
     }
 
     useEffect(() => {
-        console.log("d")
         getMostPopularShows(page)
     }, [page])
 

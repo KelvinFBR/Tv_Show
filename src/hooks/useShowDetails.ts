@@ -33,7 +33,6 @@ const useShowDetails = () => {
     useEffect(() => {
         if (!querySearch) return
         getShowDetails(querySearch)
-        console.log("S")
     }, [querySearch])
 
 
