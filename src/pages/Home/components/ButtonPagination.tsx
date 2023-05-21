@@ -32,16 +32,16 @@ const ButtonPagination = ({ page, totalPages, setShowPage }: ButtonPaginationPro
             <div className="bg-[#112B3C] flex justify-center items-center max-w-max rounded-xl h-full overflow-hidden font-medium text-[#EFEFEF]">
                 <span className="cursor-pointer block p-3 h-full border-r-[0.01rem] hover:bg-[#F66B0E]" onClick={handdlePrevPage}>Prev</span>
                 {buttonsPagination.map((btn) => (
-                    btn.page <= 0 ? (<></>) : (
+                    btn.page > 0 && btn.page < totalPages ? (
                         <span key={btn.id} className={` cursor-pointer block border-r-[0.01rem] p-3 h-full hover:bg-[#F66B0E] ${btn.page == page ? "bg-[#F66B0E]" : ""}`} onClick={() => { handdleNewPage(btn.page) }}>{btn.page}</span>
-                    )
+                    ) : null
                 ))
                 }
                 <span className="cursor-pointer block p-3 h-full border-r-[0.01rem]">...</span>
-                <span className="cursor-pointer block p-3 h-full border-r-[0.01rem] hover:bg-[#F66B0E]" onClick={() => { handdleNewPage(totalPages) }}>{totalPages}</span>
+                <span className={`cursor-pointer block p-3 h-full border-r-[0.01rem] hover:bg-[#F66B0E] ${page == totalPages ? " bg-[#F66B0E]" : ""}`} onClick={() => { handdleNewPage(totalPages) }}>{totalPages}</span>
                 <span className="cursor-pointer block p-3 h-full border-r-[0.01rem] hover:bg-[#F66B0E]" onClick={handdleNextPage}>Next</span>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -8,23 +8,26 @@ let totalPages: number;
 
 const useShowApi = () => {
     const [page, setPage] = useState(1)
+    const [isLoading, setIsLoading] = useState(false)
     const [mostPopularShows, setMostPopularShows] = useState<ShowDetail[]>([])
 
     const setShowPage = (newPage: number) => {
         setPage(newPage)
     }
 
-    const getShows = (q: string) => {
-        const data = showServices.getShows(q)
-        return { data }
-    }
-
     const getMostPopularShows = async (pageShows: number) => {
-        const resp = await showServices.getMostPopularShows(`${pageShows}`)
-        if (!resp) return
+        try {
+            setIsLoading(true)
+            const resp = await showServices.getMostPopularShows(`${pageShows}`)
+            if (!resp) return
 
-        totalPages = resp.data.pages
-        setMostPopularShows(resp.data.tv_shows)
+            totalPages = resp.data.pages
+            setMostPopularShows(resp.data.tv_shows)
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     useEffect(() => {
@@ -33,15 +36,16 @@ const useShowApi = () => {
     }, [page])
 
 
+
     return {
         // properties
+        isLoading,
         page,
         totalPages,
         mostPopularShows,
 
         // methods
         setShowPage,
-        getShows,
     }
 }
 

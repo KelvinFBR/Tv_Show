@@ -4,7 +4,13 @@ import tvShowApi from "./tvShowsApi";
 export class ShowServices {
 
     async getShows(q = "") {
-        return `shows ${q}`
+        try {
+            const resp = await tvShowApi.get(`/search?q=${q}`);
+            const { data, status } = resp
+            return { status, data }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     async getMostPopularShows(page = "1"): Promise<{ status: number, data: MostPopularShowDetail } | void> {
