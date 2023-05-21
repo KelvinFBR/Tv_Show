@@ -1,4 +1,4 @@
-import { ShowDetail } from "../models/index.type"
+import { ShowsDetailsCards } from "../models/index.type"
 import { ShowServices } from "../services/showServices"
 
 import { useState, useEffect } from "react"
@@ -9,7 +9,7 @@ let totalPages: number;
 const useShowApi = () => {
     const [page, setPage] = useState(1)
     const [isLoading, setIsLoading] = useState(false)
-    const [mostPopularShows, setMostPopularShows] = useState<ShowDetail[]>([])
+    const [mostPopularShows, setMostPopularShows] = useState<ShowsDetailsCards[]>([])
 
     const setShowPage = (newPage: number) => {
         setPage(newPage)

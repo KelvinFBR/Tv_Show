@@ -1,4 +1,4 @@
-import { ShowsDetailsCards } from "../models/index.type"
+import { ShowDetails } from "../models/index.type"
 import { ShowServices } from "../services/showServices"
 
 import { useState, useEffect } from "react"
@@ -6,24 +6,23 @@ import { useState, useEffect } from "react"
 const showServices = new ShowServices()
 let totalPages: number;
 
-const useShowSearchApi = () => {
+const useShowDetails = () => {
     const [querySearch, setQuerySearch] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const [showsResultSearch, setShowsResultSearch] = useState<ShowsDetailsCards[]>([])
+    const [showResultDetails, setShowResultDetails] = useState<ShowDetails>()
 
     const setQuerySearchShow = (newQuery: string) => {
         if (!newQuery) return
         setQuerySearch(newQuery)
     }
 
-    const getShows = async (q: string) => {
+    const getShowDetails = async (q: string) => {
         try {
             setIsLoading(true)
-            const resp = await showServices.getShows(`${q}`)
+            const resp = await showServices.getShowDetail(`${q}`)
             if (!resp) return
 
-            totalPages = resp.data.pages
-            setShowsResultSearch(resp.data.tv_shows)
+            setShowResultDetails(resp.data.tvShow)
         } catch (error) {
             console.log(error)
         } finally {
@@ -33,7 +32,8 @@ const useShowSearchApi = () => {
 
     useEffect(() => {
         if (!querySearch) return
-        getShows(querySearch)
+        getShowDetails(querySearch)
+        console.log("S")
     }, [querySearch])
 
 
@@ -42,12 +42,12 @@ const useShowSearchApi = () => {
         isLoading,
         totalPages,
         querySearch,
-        showsResultSearch,
+        showResultDetails,
 
         // methods
         setQuerySearchShow,
-        getShows,
+        getShowDetails,
     }
 }
 
-export default useShowSearchApi
+export default useShowDetails

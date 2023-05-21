@@ -20,7 +20,7 @@ const Home = () => {
                 <section>
 
                 </section>
-                <section className="p-10" id="mostpopular">
+                <section className="p-4" id="mostpopular">
                     <Title title="Most Popular Show" />
                     <div className=" flex flex-wrap justify-center gap-8 p-10">
                         {mostPopularShows.map((data) => (

@@ -12,9 +12,17 @@
         text-shadow: 1.5px 0 1px rgba(53, 53, 53, 0.84);
     }
 
+    .bg-gradient {
+        background: rgb(32, 83, 117);
+        background: linear-gradient(280deg, rgba(32, 83, 117, 0.8447837150127226) 0%, rgba(32, 83, 117, 1) 100%);
+    }
+
+
+
     /* footer responsive */
     .footer-bottom {
         position: relative;
+        height: 100%;
         min-height: calc(100vh - 216px);
     }
 
